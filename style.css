@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	background: rgba(196,196,196, .8) url(./img/forest.jpg) no-repeat center center / cover;
+	color: #FFFFFF;
+	font-family: Lato, sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+/* Add a dark overlay to the background */
+body::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .7);
+}
+
+/* Take everything behind the dark overlay */
+body * {
+	z-index: 1;
+}
+
+#year {
+	font-size: 10rem;
+	position: absolute;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	opacity: 0.2;
+}
+
+#nextYear {
+    font-size: 10rem;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.2;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+/* Display days, hours, minutes, seconds horizontally */
+#countdown {
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 1rem 3rem;
+    transform: scale(1.5);
+}
+
+.time {
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+#loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 600px) {
+	#year, #nextYear {
+		font-size: 6rem;
+	}
+	
+	h1 {
+		font-size: 2rem;
+	}
+	
+	.time {
+		font-size: 1rem;
+	}
+}
